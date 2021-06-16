@@ -1,11 +1,12 @@
 import React from 'react';
+import CartWidget from './CartWidget';
 
 class NavBar extends React.Component {
 
   constructor (props) {
     super();
     this.state = {
-      styles: props.NavBarStyles
+      
     }
   }
 
@@ -18,6 +19,7 @@ class NavBar extends React.Component {
           <span>Conocenos</span>
           <span>Productos</span>
           <span>Contacto</span>
+          <CartWidget />
         </div>
       </>
     )
