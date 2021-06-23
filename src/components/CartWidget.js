@@ -2,7 +2,10 @@ import React from 'react';
 
 function CartWidget () {
   return (
-    <img src='resources/shopping-cart-solid.svg' alt='Shopping cart' width='20px' />
+    <img 
+      src='resources/shopping-cart-solid.svg' 
+      alt='Shopping cart' 
+      width='20px' />
   )
 }
 
