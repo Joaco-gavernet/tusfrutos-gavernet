@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Fragment} from 'react';
 import Card from './Card';
 
 let referensData = [
@@ -35,9 +35,7 @@ function CardContainerHook () {
 
   return (
     <>
-      {referens.map((item) => {
-        return <Card {...item} />
-      })}
+      {referens.map((item, i) => <Card {...item} key={i} id={i} /> )}
     </>
   )
 }
