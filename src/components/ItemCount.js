@@ -16,13 +16,17 @@ function ItemCount ({initial, stock, onAdd}) {
   }
 
   let countDown = () => {
-    setCount(count--);
+    if (count > 0) {
+      setCount(count--);
+    } else {
+      alert('Producto eliminado');
+    }
   }
 
   return (
     <div style={{minWidth: '250px', flexDirection: 'row', alignItems: 'center'}}>
       <button onClick={countDown}>-</button>
-      <input style={{display: 'inline-block', minWidth: '50px', textAlign: 'center'}} value={count}></input>
+      <input style={{display: 'inline-block', minWidth: '50px', textAlign: 'center'}} value={count} />
       <button onClick={countUp}>+</button>
       <button onClick={onAdd}>Agregar producto</button>
     </div>

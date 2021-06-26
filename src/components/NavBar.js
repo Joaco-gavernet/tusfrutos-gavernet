@@ -1,7 +1,7 @@
 import React from 'react';
 import CartWidget from './CartWidget';
 
-let NavBar = () => {
+const NavBar = () => {
 
   return (
     <>

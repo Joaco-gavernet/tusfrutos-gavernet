@@ -56,7 +56,6 @@ let referensData = [
 
 class CardContainer extends React.Component {
 
-
   state = {
     referens: referensData
   }
@@ -70,9 +69,7 @@ class CardContainer extends React.Component {
       </div>
     )
   }
-
-
-
+  
 }
 
 export default CardContainer;

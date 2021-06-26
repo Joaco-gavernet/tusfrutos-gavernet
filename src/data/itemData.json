@@ -1,0 +1,22 @@
+{
+  "product1": {
+    "name": "Pasas",
+    "img": "https://picsum.photos/id/237/200/300",
+    "description": "Humedas y sabrosas, pero no mimosas."
+  },
+  "product2": {
+    "name": "Nueces",
+    "img": "https://picsum.photos/id/237/200/300",
+    "description": "Las tradicionales y tan buscadas nueces."
+  },
+  "product3": {
+    "name": "Almendras",
+    "img": "https://picsum.photos/id/237/200/300",
+    "description": "Almendras para alargar tus años de vida."
+  },
+  "product4": {
+    "name": "Castañas",
+    "img": "https://picsum.photos/id/237/200/300",
+    "description": "Mejores que cualquier otro fruto, muy sabrosas."
+  }
+}
