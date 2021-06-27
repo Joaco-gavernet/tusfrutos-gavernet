@@ -1,4 +1,4 @@
-import React, {useEffect, useState, Fragment} from 'react';
+import React, {useEffect, useState} from 'react';
 import Card from './Card';
 
 let referensData = [
@@ -31,7 +31,7 @@ let referensData = [
 function CardContainerHook () {
   const [referens] = useState(referensData);
 
-  useEffect(() => {console.log('Component did mount')}, []);
+  useEffect(() => {console.log('CardContainerHook did mount')}, []);
 
   return (
     <>

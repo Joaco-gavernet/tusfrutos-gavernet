@@ -1,23 +1,23 @@
-{
-  "user1": {
+[
+  {
     "message": "lorem impsudcam;slkdm ;acakm;l dk jgel;km al;dsmkcl ael;k jasdf",
     "user": {
       "name": "Joaquin",
       "course": "React.js"
     }
   },
-  "user2": {
+  {
     "message": "lorem impsudcam;slkdm ;acakm;l dk jgel;km al;dsmkcl ael;k jasdf",
     "user": {
       "name": "Nicolas",
       "course": "React.js"
     }
   },
-  "user3": {
+  {
     "message": "lorem impsudcam;slkdm ;acakm;l dk jgel;km al;dsmkcl ael;k jasdf",
     "user": {
       "name": "Rosario",
       "course": "React.js"
     }
   }
-}
+]

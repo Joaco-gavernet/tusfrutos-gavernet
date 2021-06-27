@@ -4,10 +4,13 @@ function ItemCount ({initial, stock, onAdd}) {
 
   let [count, setCount] = useState(initial);
 
-  useEffect(() => {console.log('Already loaded')}, []);
-  useEffect(() => {console.log('Component updated')}, [count]);
+  useEffect(() => {console.log('ItemCount did mount')}, [count]);
 
-  let countUp = () => {
+  const inputChangedHandler = (event) => {
+    setCount(event.target.value);
+  }
+
+  const countUp = () => {
     if (count < stock && stock > 0) {
       setCount(count++)
     } else {
@@ -15,7 +18,7 @@ function ItemCount ({initial, stock, onAdd}) {
     }
   }
 
-  let countDown = () => {
+  const countDown = () => {
     if (count > 0) {
       setCount(count--);
     } else {
@@ -26,7 +29,11 @@ function ItemCount ({initial, stock, onAdd}) {
   return (
     <div style={{minWidth: '250px', flexDirection: 'row', alignItems: 'center'}}>
       <button onClick={countDown}>-</button>
-      <input style={{display: 'inline-block', minWidth: '50px', textAlign: 'center'}} value={count} />
+      <input 
+        className="input" 
+        style={{display: 'inline-block', minWidth: '50px', textAlign: 'center'}} 
+        value={count} 
+        onChange={(event) => {inputChangedHandler(event)}} />
       <button onClick={countUp}>+</button>
       <button onClick={onAdd}>Agregar producto</button>
     </div>

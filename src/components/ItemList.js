@@ -5,7 +5,7 @@ function ItemList () {
   const itemData = {
     "product1": {
       "name": "Pasas",
-      "img": "./resources/castanas",
+      "img": "../../public/resources/castanas.png",
       "description": "Humedas y sabrosas, pero no mimosas."
     },
     "product2": {
