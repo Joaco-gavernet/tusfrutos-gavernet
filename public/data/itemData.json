@@ -1,22 +1,23 @@
-{
-  "product1": {
+[
+  {
     "name": "Pasas",
-    "img": "https://picsum.photos/id/237/200/300",
-    "description": "Humedas y sabrosas, pero no mimosas."
+    "img": "assets/castanas.png",
+    "description": "Humedas y sabrosas pasas de uva."
   },
-  "product2": {
+  {
     "name": "Nueces",
     "img": "https://picsum.photos/id/237/200/300",
     "description": "Las tradicionales y tan buscadas nueces."
   },
-  "product3": {
+  {
     "name": "Almendras",
     "img": "https://picsum.photos/id/237/200/300",
     "description": "Almendras para alargar tus años de vida."
   },
-  "product4": {
+  {
     "name": "Castañas",
     "img": "https://picsum.photos/id/237/200/300",
-    "description": "Mejores que cualquier otro fruto, muy sabrosas."
+    "description": "Mejores que cualquier otro fruto."
   }
-}
+]
+// api link = https://mocki.io/v1/96664b5c-e01d-49fb-a0de-b7d9a11a0127

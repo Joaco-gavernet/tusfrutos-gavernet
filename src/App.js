@@ -3,12 +3,12 @@ import NavBar from './components/NavBar';
 import NutWidget from './components/NutWidget';
 import ItemListContainer from './components/ItemListContainer';
 // import CardContainerHook from './components/CardContainerHook';
-import CardContainer from './components/CardContainer';
+// import CardContainer from './components/CardContainer';
 import ItemCount from './components/ItemCount';
 
 // Vars 
 let nutData = {
-  src: './resources/nueces.png'
+  src: './assets/nueces.png'
 };
 
 let name = ['Joaquin', 'Nicolas', 'Rosario'];
@@ -25,7 +25,7 @@ function App () {
         <NutWidget data={nutData} width='300px' />
         <ItemListContainer data={name} />
         {/* <CardContainerHook /> */}
-        <CardContainer />
+        {/* <CardContainer /> */}
         <ItemCount initial={1} stock={8} onAdd={() => {alert('Producto agregado')}} />
       </div>
     </>
