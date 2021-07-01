@@ -1,40 +1,50 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Item from './Item.js';
 
-const itemDataBase = [
-  {
-    "name": "Pasas",
-    "img": "assets/castanas.png",
-    "description": "Humedas y sabrosas pasas de uva."
-  },
-  {
-    "name": "Nueces",
-    "img": "https://picsum.photos/id/237/200/300",
-    "description": "Las tradicionales y tan buscadas nueces."
-  },
-  {
-    "name": "Almendras",
-    "img": "https://picsum.photos/id/237/200/300",
-    "description": "Almendras para alargar tus años de vida."
-  },
-  {
-    "name": "Castañas",
-    "img": "https://picsum.photos/id/237/200/300",
-    "description": "Mejores que cualquier otro fruto."
-  }
-]
 
-function ItemList () {
+function ItemList ({data}) {
 
-  const [itemData, setItemData] = useState([]);
+  const [itemsData, setItemsData] = useState();
 
-  const ItemPromise = new Promise((resolve, reject) => {
-    setTimeout(resolve(itemDataBase), 2000)
-    reject('ItemPromise rejected.')
-  })
+  useEffect(() => setItemsData(data), [ItemList]);
 
-  ItemPromise.then(answer => setItemData(answer))
-  ItemPromise.catch(answer => console.log(answer))
+  return (
+    <>
+      {/* {itemsData.map((itemInstance, i) => <Item {...itemInstance} key={i} />)} */}
+      {console.log(itemsData)}
+    </>
+  )
+}
+
+export default ItemList;
+
+
+
+
+// //////////////////////////////////////////////////////////////////////
+
+  // const [itemData, setItemData] = useState([]);
+
+  // const ItemPromise = new Promise((resolve, reject) => {
+  //   setTimeout(resolve(itemDataBase), 2000)
+  //   reject('ItemPromise rejected.')
+  // })
+
+  // ItemPromise.then(answer => setItemData(answer))
+  // ItemPromise.catch(answer => console.log(answer))
+
+  // const [nut, setNut] = useState({});
+
+  // useEffect(() => {
+  //   fetch('https://mocki.io/v1/d100338d-4cc8-436c-84d7-936247afb1d1', {
+  //     method: 'GET'
+  //   })
+  //   .then(ans => ans.json())
+  //   .then(ans => setNut(ans))
+  // }, [])
+
+// //////////////////////////////////////////////////////////////////////
+
 
   // Intento de implementar la Promise con fetch
   // const ItemPromise = new Promise((resolve, reject) => {
@@ -51,17 +61,3 @@ function ItemList () {
   // ItemPromise.then(result => console.log(result))
   // ItemPromise.catch(msj => console.log(msj));
   // ItemPromise.finally(console.log('Fin de la promesa'))
-
-  return (
-    <>
-      {(true) ? (
-        itemData.map((item, i) => <Item {...item} key={i} />)
-        ) : (
-          <p>Cargando...</p>
-        )
-      }
-    </>
-  )
-}
-
-export default ItemList;
