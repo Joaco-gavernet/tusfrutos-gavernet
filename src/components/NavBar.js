@@ -5,8 +5,12 @@ const NavBar = () => {
 
   return (
     <>
-      <h1>Tus Frutos Secos</h1>
-      <div style={{display: 'flex', justifyContent: 'space-evenly', minWidth: '600px'}}>
+      <div style={{
+        display: 'flex', 
+        justifyContent: 'space-evenly', 
+        alignItems: 'center',
+        minWidth: '600px',
+        minHeight: '80px'}}>
         <span>Frutos Secos</span>
         <span>Mieles</span>
         <span>Cereales</span>

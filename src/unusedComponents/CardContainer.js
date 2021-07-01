@@ -46,7 +46,6 @@ class CardContainer extends React.Component {
         Container Card
         {this.state.done && Array.isArray(this.state.referens) ? (
           this.state.referens.map((item, i) => <Card {...item} key={i} />)
-
         ) : (
           <p>Cargando...</p>
         )}

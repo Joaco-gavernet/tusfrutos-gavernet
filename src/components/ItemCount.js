@@ -1,10 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 function ItemCount ({initial, stock, onAdd}) {
 
   let [count, setCount] = useState(initial);
-
-  useEffect(() => {console.log('ItemCount did mount')}, [count]);
 
   const inputChangedHandler = (event) => {
     setCount(event.target.value);
