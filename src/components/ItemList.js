@@ -1,17 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Item from './Item.js';
 
 
 function ItemList ({data}) {
 
-  const [itemsData, setItemsData] = useState();
-
-  useEffect(() => setItemsData(data), [ItemList]);
-
   return (
     <>
-      {/* {itemsData.map((itemInstance, i) => <Item {...itemInstance} key={i} />)} */}
-      {console.log(itemsData)}
+      {data.map((itemInstance, i) => <Item {...itemInstance} key={i} />)}
     </>
   )
 }
