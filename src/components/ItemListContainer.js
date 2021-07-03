@@ -24,12 +24,20 @@ const itemDataBase = [
   }
 ]
 
-function ItemListContainer () {
+const itemPromise = new Promise((resolve, reject) => {
+  return setTimeout(() => {
+    resolve(itemDataBase)
+  }, 2000)
+  reject('itemPromise failed')
+})
+
+export default function ItemListContainer () {
   
   const [itemsData, setItemsData] = useState([]);
 
   useEffect(() => {
-    setItemsData(itemDataBase)
+    itemPromise.then(ans => setItemsData(ans));
+    itemPromise.catch(msj => console.log(msj));
   }, [])
 
   return (
@@ -40,4 +48,3 @@ function ItemListContainer () {
   )
 }
 
-export default ItemListContainer;

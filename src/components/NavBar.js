@@ -12,7 +12,7 @@ const NavBar = () => {
         minWidth: '600px',
         minHeight: '80px'}}>
         <span>Frutos Secos</span>
-        <span>Mieles</span>
+        <span>Liquidos</span>
         <span>Cereales</span>
         <CartWidget />
       </div>
