@@ -1,0 +1,17 @@
+@import '../../scss/base';
+
+.NavBar {
+  display: flex; 
+  justify-content: space-evenly; 
+  align-items: center;
+  flex-flow: column;
+  grid-area: 1/1/2/2;
+
+  
+  z-index: 3;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 20%;
+	height: 100vh;
+}

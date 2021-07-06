@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: $color-oscuro;
+  line-height: 1.5;
+  background-color: $color-claro;
+  position: relative;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1.15;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none; 
+  color: inherit; 
+  text-decoration: inherit;
+}
+
+a:hover{
+  color: $color-orange;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 69.375rem;
+  padding: 2.25rem 1.0625rem;
+
+  &--px {
+    padding: 0 1.0625rem;
+  }
+
+  &--py {
+    padding: 2.25rem 0;
+  }
+
+  &--pt {
+    padding-top: 2.25rem;
+  }
+
+  &--pr {
+    padding-right: 1.0625rem;
+  }
+
+  &--pb {
+    padding-bottom: 2.25rem;
+  }
+
+  &--pl {
+    padding-left: 1.0625rem;
+  }
+}
+
+// Visibility
+.hide-for-mobile {
+  @include breakpoint-down ("medium") {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up ("large") {
+    display: none;
+  }
+}
+
+button, .button {
+  display: inline-block;
+  padding: 0.875rem 1.875rem;
+  border-radius: 50px;
+  border: 0;
+  cursor: pointer;
+  // background: linear-gradient(to right, $limeGreen, $brightCyan);
+  // color: $white;
+  // font-weight: 400;
+  // font-size: $font-sm;
+  // color: $white;
+  // transition: opacity 300ms ease-in-out;
+
+  // &:hover {
+  //   opacity: 0.75;
+  // }
+}

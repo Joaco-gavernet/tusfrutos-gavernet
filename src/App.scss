@@ -1,0 +1,13 @@
+@import 'scss/base.scss';
+
+.App {
+  min-height: 100vh; 
+  padding-bottom: 10rem;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr;
+
+  .container {
+    grid-area: 1/2/2/3;
+  }
+}
