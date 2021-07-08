@@ -5,7 +5,7 @@ function CartWidget () {
     <img 
       src='assets/shopping-cart-solid.svg' 
       alt='Shopping cart' 
-      width='20px' />
+      width='30px' />
   )
 }
 
