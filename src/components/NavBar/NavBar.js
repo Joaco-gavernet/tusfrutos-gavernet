@@ -22,7 +22,7 @@ const NavBar = () => {
         </div>
         <div className='NavBar__widgets'>
           <a href="https://www.instagram.com/tus.frutossecos/">
-            <img src='assets/ig.png' alt='' className='NavBar__widgetsImg' />
+            <img src='../assets/ig.png' alt='' className='NavBar__widgetsImg' />
           </a>
           <Link to={'/'}>
             <CartWidget />

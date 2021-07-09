@@ -8,7 +8,6 @@ function Item ({name, description, img}) {
   return (
     <div style={{display: 'flex'}}>
       <img src={img} alt="" style={{maxWidth: '200px'}} />
-      {console.log(img)}
       <div>
         <h2>{name}</h2>
         <p>{description}</p>
