@@ -4,11 +4,11 @@ function ItemDetail ({data}) {
 
   return(
     <>
-      <img src={data[0]} alt="" />
+      <img src={data.img} alt="" />
       <p>
-        {data[1]}
+        {data.description}
       </p>
-      <h3>{data[2]}</h3>
+      <h3>{data.price}</h3>
     </>
   )
 }

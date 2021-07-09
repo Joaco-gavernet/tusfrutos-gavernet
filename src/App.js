@@ -20,7 +20,7 @@ function App () {
             </p>
             
             <Switch>
-              <Route exact path='/frutos'>
+              <Route exact path='/menu/:category'>
                 <ItemListContainer />
               </Route>
 
