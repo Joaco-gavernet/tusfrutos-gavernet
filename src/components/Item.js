@@ -11,7 +11,7 @@ function Item ({name, description, img}) {
       <div>
         <h2>{name}</h2>
         <p>{description}</p>
-        <Link to={'/item/:name'}>
+        <Link to={`/item/:${name}`}>
           <button>Detalles</button>
         </Link>
         <ItemCount initial={1} stock={8} onAdd={() => {alert('Producto agregado')}} />

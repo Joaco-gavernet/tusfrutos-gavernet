@@ -6,13 +6,6 @@ import Spinner from 'react-bootstrap/Spinner';
 
 
 
-// // 2
-// const filterData = () => {
-//   let fetchPetition = fetch('');
-//   let results = fetchPetition.then(response => response);
-//   itemsData = results.filter();
-// }
-
 export default function ItemListContainer () {
   
   const [itemsData, setItemsData] = useState([]);

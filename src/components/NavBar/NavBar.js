@@ -17,7 +17,6 @@ const NavBar = () => {
             <Link to={'/category/frutos'}>Frutos Secos</Link>
             <Link to={'/category/embotellados'}>Embotellados</Link>
             <Link to={'/category/cereales'}>Cereales</Link>
-            <Link to={'/detail'}>Detalle</Link>
           </div>
         </div>
         <div className='NavBar__widgets'>

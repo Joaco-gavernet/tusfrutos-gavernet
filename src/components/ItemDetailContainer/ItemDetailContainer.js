@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import Spinner from 'react-bootstrap/Spinner';
+import { useParams } from 'react-router-dom';
 
 // Data
 const itemData = [
@@ -20,7 +21,9 @@ const itemPromise = new Promise(resolve => {
 function ItemDetailContainer () {
 
   const [item, setItem] = useState([]);
-
+  const { name } = useParams();
+  console.log(name);
+  
   useEffect(() => {
     itemPromise.then(response => setItem(response));
     itemPromise.catch(error => console.log(error));

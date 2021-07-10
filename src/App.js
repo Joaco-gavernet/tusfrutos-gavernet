@@ -27,7 +27,7 @@ function App () {
                 <ItemListContainer />
               </Route>
 
-              <Route exact path='/detail'>
+              <Route exact path='/item/:name'>
                 <ItemDetailContainer />
               </Route>
             </Switch>
