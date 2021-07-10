@@ -29,6 +29,7 @@ function ItemCount ({initial, stock, onAdd}) {
       <button onClick={countDown}>-</button>
       <input 
         className="input" 
+        type='number'
         style={{display: 'inline-block', minWidth: '50px', textAlign: 'center'}} 
         value={count} 
         onChange={(event) => {inputChangedHandler(event)}} />

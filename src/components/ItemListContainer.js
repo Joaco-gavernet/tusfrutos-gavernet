@@ -6,47 +6,36 @@ import Spinner from 'react-bootstrap/Spinner';
 
 
 
+// // 2
+// const filterData = () => {
+//   let fetchPetition = fetch('');
+//   let results = fetchPetition.then(response => response);
+//   itemsData = results.filter();
+// }
+
 export default function ItemListContainer () {
   
   const [itemsData, setItemsData] = useState([]);
-  const {category} = useParams();
-  
-  const itemPromise = new Promise(resolve => {
-    if (category) {
-      return setTimeout(() => {
-        let filtered = itemDataBase.filter(item => item.category === category)
-        resolve(filtered);
-      }, 2000);
-    } else {
-      return resolve(itemDataBase);
-    } 
+  const {id} = useParams();
+  console.log(id)
 
-
-    // return setTimeout(() => {
-    //   resolve(itemDataBase)
-    // }, 2000)
-  })
-
-  const filterData = () => {
-    if (category) {
-      let dataFiltered = itemsData.filter(item => item.category === category);
-      console.log(dataFiltered);
-      return dataFiltered;
-    }
+  const filterData = (data, filterCategory) => {
+    setItemsData(data.filter(item => item.category === filterCategory));
   }
 
   useEffect(() => {
-    itemPromise.then(setItemsData); // ans => setItemsData(ans)
-    let result = filterData();
-    setItemsData(result);
-  }, [category])
+    Promise.resolve(itemDataBase)
+    .then(ans => filterData(ans, id));
+  }, [id])
 
   return (
     <>
-      <h2>{category.charAt(0).toUpperCase() + category.slice(1) /* Convierte la primer letra a uppercase */}</h2>
       {
         (itemsData.length !== 0) ? (
-          <ItemList data={itemsData} />
+          <>
+            <h2>{id.charAt(0).toUpperCase() + id.slice(1) /* Convierte la primer letra a uppercase */}</h2>
+            <ItemList data={itemsData} />
+          </>
         ) : (
           <Spinner animation="border" variant="dark" />
         )

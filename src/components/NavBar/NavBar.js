@@ -14,9 +14,9 @@ const NavBar = () => {
         <div>
           <h3>Categorias</h3>
           <div className='NavBar__links'>
-            <Link to={'/menu/frutos'}>Frutos Secos</Link>
-            <Link to={'/menu/embotellados'}>Embotellados</Link>
-            <Link to={'/menu/cereales'}>Cereales</Link>
+            <Link to={'/category/frutos'}>Frutos Secos</Link>
+            <Link to={'/category/embotellados'}>Embotellados</Link>
+            <Link to={'/category/cereales'}>Cereales</Link>
             <Link to={'/detail'}>Detalle</Link>
           </div>
         </div>

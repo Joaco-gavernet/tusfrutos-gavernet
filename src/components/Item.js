@@ -7,7 +7,7 @@ function Item ({name, description, img}) {
 
   return (
     <div style={{display: 'flex'}}>
-      <img src={img} alt="" style={{maxWidth: '200px'}} />
+      <img src={img} alt="" style={{maxWidth: '200px', maxHeight: '200px'}} />
       <div>
         <h2>{name}</h2>
         <p>{description}</p>
