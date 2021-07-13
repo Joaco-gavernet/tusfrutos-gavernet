@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 20% 80%;
   grid-template-rows: 1fr;
+  padding: 0 5%;
 
   .container {
     grid-area: 1/2/2/3;

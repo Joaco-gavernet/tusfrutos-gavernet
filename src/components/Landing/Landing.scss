@@ -1,0 +1,10 @@
+@import '../../scss/base';
+
+.Landing {
+  @include flex(column, center, center);
+
+  &__text {
+    @include font($font-m, bold, none);
+    text-align: center;
+  }
+}

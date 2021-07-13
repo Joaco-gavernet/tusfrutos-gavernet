@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CartWidget from '../CartWidget';
 import './NavBar.scss';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+// Context
+import { CartContext } from '../../context/CartContext';
+
+function NavBar () {
+
+  const example = useContext(CartContext);
 
   return (
     <>
       <div className='NavBar'>
+        {console.log(example)}
         <Link to={'/'}>
-          <img src='https://picsum.photos/100' alt='' />
+          <img src='../assets/logo.png' alt='' className='NavBar__img' />
         </Link>
+
         <div>
           <h3>Categorias</h3>
           <div className='NavBar__links'>
@@ -23,7 +30,7 @@ const NavBar = () => {
           <a href="https://www.instagram.com/tus.frutossecos/">
             <img src='../assets/ig.png' alt='' className='NavBar__widgetsImg' />
           </a>
-          <Link to={'/'}>
+          <Link to={'/cart'}>
             <CartWidget />
           </Link>
         </div>

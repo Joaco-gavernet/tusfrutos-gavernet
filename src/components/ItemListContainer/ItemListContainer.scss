@@ -1,0 +1,5 @@
+@import '../../scss/base.scss';
+
+.ItemListContainer {
+  @include flex(column, center, center);
+}

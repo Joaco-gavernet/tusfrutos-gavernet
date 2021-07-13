@@ -1,0 +1,6 @@
+@import '../../scss/base.scss';
+
+
+.ItemList {
+  @include flex(column, center, flex-start);
+}

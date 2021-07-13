@@ -16,15 +16,18 @@
   background: $color-ddl;
   @include font($font-m, bold, normal);
   
+  &__img {
+    max-width: 100px;
+  }
   
-  .NavBar__links {
+  &__links {
     display: flex; 
     justify-content: space-evenly; 
     align-items: center;
     flex-flow: column;
   }
 
-  .NavBar__widgets {
+  &__widgets {
     @include flex(column, space-evenly, center);
     min-height: 200px;
 

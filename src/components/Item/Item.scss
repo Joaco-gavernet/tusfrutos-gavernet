@@ -1,0 +1,16 @@
+@import '../../scss/base.scss';
+
+.Item {
+  width: 90%;
+  min-height: 15rem;
+  @include flex(row, flex-start, center);
+
+  &__img {
+    height: 200px;
+    margin-right: 4rem;
+  }
+
+  &__div {
+
+  }
+}
