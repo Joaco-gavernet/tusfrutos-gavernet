@@ -9,14 +9,12 @@ import Landing from './components/Landing/Landing';
 
 // Context
 import { CartContext } from '../src/context/CartContext';
-import { ItemListContext } from '../src/context/ItemListContext';
 
 
 function App () {
   return (
-    <>  
-      <CartContext.Provider value='hola'>
-      <ItemListContext.Provider value='array of items' >
+    <>
+      <CartContext.Provider value='I come from Context '>
         <div className='App'>
           <BrowserRouter>
             <NavBar />
@@ -35,12 +33,15 @@ function App () {
                 <Route exact path='/item/:id'>
                   <ItemDetailContainer />
                 </Route>
+
+                <Route exact path='/cart'>
+                  <h2>Carrito</h2>
+                </Route>
               </Switch>
             </div>
             
           </BrowserRouter>
         </div>
-      </ItemListContext.Provider>
       </CartContext.Provider>
     </>
   );
