@@ -1,47 +1,43 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export const CartContext = createContext();
+export const useCartContext = () => useContext(CartContext);
 
 export const CartContextProvider = ({children}) => {
 
-  const [cart, setCart] = useState({
-    total: 0,
-    selection: null,
-  });
+  const [cart, setCart] = useState([]);
 
-  const calculateTotal = (amount) => {
-    cart.total = cart.total + JSON.parse(amount);
-    console.log(cart.total);
+  const addItem = (item, quantity) => {
+    // Verificar presencia
+
+    setCart([...cart, {item, quantity}])
   }
 
-  const addItem = (item, quantity = 5) => {
-    let itemId = item.id;
-    let itemPrice = item.price;
-    let subtotal = itemPrice * quantity;
-    console.log('selection', cart.selection);
+  const removeItem = (id) => {
+    let example = cart.find( ex => ex.item.id === id);
+    cart.splice(cart.indexOf(example), 1);
 
-    calculateTotal(subtotal);
-    
-    setCart(
-      {...cart, 
-        selection:
-        {
-          itemId,
-          quantity,
-        }
-      }
-    )
-
+    // (cart && cart.includes(item.id)) && cart.find(item => {
+    //   if (item.id === id) {
+    //     let index = cart.indexOf(item)
+    //     return cart.splice(index, 1);
+    //   }
+    // })
   }
+
+  // clear()
+  
+  // isInCart(id)
 
   useEffect(() => {
-    console.log('CartContext value:', cart);
+    console.log('CartContext:', cart);
   }, [cart])
 
   return (
     <CartContext.Provider value={{
       cart, 
       addItem,
+      removeItem,
       }}>
       {children}
     </CartContext.Provider>

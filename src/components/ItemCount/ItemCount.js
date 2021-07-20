@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import './ItemCount.scss';
 
-function ItemCount ({stock, onAdd}) {
+function ItemCount ({onAdd, stock}) {
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1);
 
   const inputChangedHandler = (event) => {
     let number = event.target.value;

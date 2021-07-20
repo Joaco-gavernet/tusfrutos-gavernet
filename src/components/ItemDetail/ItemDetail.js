@@ -9,9 +9,9 @@ import './ItemDetail.scss';
 import { CartContext } from '../../context/CartContext';
 
 
-function ItemDetail ({data, stock}) {
+function ItemDetail ({data}) {
   
-  const { addItem } = useContext(CartContext);
+  const { addItem, removeItem } = useContext(CartContext);
   
   const [ isVisible, setVisible ] = useState(true);
   const [ isButton, setButton ] = useState(false);
@@ -19,19 +19,16 @@ function ItemDetail ({data, stock}) {
   const onAdd = (quantity) => {
     setVisible(!isVisible);
     setButton(!isButton);
-    console.log(quantity);
-
-    saveContext(quantity);
+    saveContext(data, quantity);
   }
 
-  const saveContext = (quantity) => {
-    addItem(data, quantity);
-    // console.log('trying to pass the quantity to set the total')
+  const saveContext = (item, quantity) => {
+    addItem(item, quantity);
   }
 
 
   return(
-    (stock !== 0) ? (
+    (data.stock !== 0) ? (
       <div className='ItemDetail'>
         <img src={data.img} alt="" className='ItemDetail__img' />
         <div className='ItemDetail__div'>
@@ -40,10 +37,13 @@ function ItemDetail ({data, stock}) {
           </p>
           <h3>{data.price}</h3>
           {
-            isVisible && <ItemCount stock={stock} onAdd={onAdd} />
+            isVisible && <ItemCount onAdd={onAdd} stock={data.stock} />
           }
           {
             isButton && <Link to='/cart'><button>Terminar compra</button></Link>
+          }
+          {
+            isButton && <button onClick={() => {removeItem(data.id)}}>Eliminar producto</button>
           }
         </div>
       </div>

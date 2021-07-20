@@ -35,7 +35,7 @@ function ItemDetailContainer () {
     <>
       {
         (received) ? (
-          <ItemDetail data={item} stock={5} />
+          <ItemDetail data={item} />
         ) : (
           <Spinner animation="border" variant="dark" style={{display: 'flex', margin: '40vh'}} />
         )
