@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+// Components
 import { Link } from 'react-router-dom';
 import ItemCount from '../../components/ItemCount/ItemCount';
 import './ItemDetail.scss';
 
+// Context
+import { CartContext } from '../../context/CartContext';
+
+
 function ItemDetail ({data, stock}) {
   
-  const [ quantityItem, setQuantityItem ] = useState('example');
+  const { addItem } = useContext(CartContext);
+  
   const [ isVisible, setVisible ] = useState(true);
   const [ isButton, setButton ] = useState(false);
 
-  const onAdd = (receivedQuantity) => {
-    setQuantityItem(JSON.parse(receivedQuantity));
+  const onAdd = (quantity) => {
     setVisible(!isVisible);
     setButton(!isButton);
+    console.log(quantity);
+
+    saveContext(quantity);
   }
 
-  console.log(quantityItem)
+  const saveContext = (quantity) => {
+    addItem(data, quantity);
+    // console.log('trying to pass the quantity to set the total')
+  }
 
 
   return(

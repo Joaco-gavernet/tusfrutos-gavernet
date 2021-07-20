@@ -12,7 +12,7 @@ function Item ({name, description, img, id}) {
         <h2>{name}</h2>
         <p>{description}</p>
         <Link to={`/item/:${id}`}>
-          <button>Detalles</button>
+          <button>Comprar</button>
         </Link>
       </div>
     </div>

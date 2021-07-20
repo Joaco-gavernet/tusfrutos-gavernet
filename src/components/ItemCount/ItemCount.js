@@ -32,15 +32,14 @@ function ItemCount ({stock, onAdd}) {
 
   return (
     <div className='ItemCountContainer'>
-      <button onClick={() => countDown(count)}>-</button>
+      <button className='itemCountContainer__modifier' onClick={() => countDown(count)}>-</button>
       <input 
         className="input" 
         type='number'
-        style={{display: 'inline-block', minWidth: '50px', textAlign: 'center'}} 
         value={count}
         onChange={(event) => {inputChangedHandler(event)}} />
-      <button onClick={() => countUp(count)}>+</button>
-      <button onClick={() => {onAdd(count)}}>Agregar producto</button>
+      <button className='itemCountContainer__modifier' onClick={() => countUp(count)}>+</button>
+      <button className='' onClick={() => {onAdd(count)}}>Agregar</button>
     </div>
   )
 }

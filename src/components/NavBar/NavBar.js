@@ -1,19 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import CartWidget from '../CartWidget';
-import './NavBar.scss';
 import { Link } from 'react-router-dom';
 
-// Context
-import { CartContext } from '../../context/CartContext';
+// Styles
+import './NavBar.scss';
+
 
 function NavBar () {
-
-  const example = useContext(CartContext);
 
   return (
     <>
       <div className='NavBar'>
-        {console.log(example)}
         <Link to={'/'}>
           <img src='../assets/logo.png' alt='' className='NavBar__img' />
         </Link>

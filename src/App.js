@@ -1,21 +1,28 @@
 import React from 'react';
+
+
+// Components
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Landing from './components/Landing/Landing';
 
+
+// Styles
+import 'bootstrap/dist/css/bootstrap.css';
+
+
 // Context
-import { CartContext } from '../src/context/CartContext';
+import { CartContextProvider } from './context/CartContext';
 
 
 function App () {
   return (
     <>
-      <CartContext.Provider value='I come from Context '>
         <div className='App'>
+          <CartContextProvider>
           <BrowserRouter>
             <NavBar />
 
@@ -39,10 +46,9 @@ function App () {
                 </Route>
               </Switch>
             </div>
-            
           </BrowserRouter>
+          </CartContextProvider>
         </div>
-      </CartContext.Provider>
     </>
   );
 }
