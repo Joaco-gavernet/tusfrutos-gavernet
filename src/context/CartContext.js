@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 export const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
@@ -7,37 +7,36 @@ export const CartContextProvider = ({children}) => {
 
   const [cart, setCart] = useState([]);
 
-  const addItem = (item, quantity) => {
-    // Verificar presencia
 
-    setCart([...cart, {item, quantity}])
+  const addItem = (item, quantity) => {
+    if (isInCart(item.id)) {
+      let element = cart.find(instance => instance.id === item.id)
+      element.quantity = element.quantity + quantity
+    } else {
+      item.quantity = quantity;
+      setCart([...cart, item])
+    }
   }
+
 
   const removeItem = (id) => {
-    let example = cart.find( ex => ex.item.id === id);
-    cart.splice(cart.indexOf(example), 1);
-
-    // (cart && cart.includes(item.id)) && cart.find(item => {
-    //   if (item.id === id) {
-    //     let index = cart.indexOf(item)
-    //     return cart.splice(index, 1);
-    //   }
-    // })
+    let itemSpected = cart.find(ex => ex.id === id);
+    cart.splice(cart.indexOf(itemSpected), 1);
   }
 
-  // clear()
-  
-  // isInCart(id)
 
-  useEffect(() => {
-    console.log('CartContext:', cart);
-  }, [cart])
+  const clear = () => console.log(cart);
+
+
+  const isInCart = (id) => cart.some(instance => instance.id === id);
+
 
   return (
     <CartContext.Provider value={{
       cart, 
       addItem,
       removeItem,
+      clear,
       }}>
       {children}
     </CartContext.Provider>

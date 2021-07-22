@@ -7,7 +7,8 @@ function Item ({name, description, img, id}) {
 
   return (
     <div className='Item' style={{display: 'flex'}}>
-      <img src={img} alt="" style={{maxWidth: '200px', maxHeight: '200px'}} className='Item__img' />
+      <img src={img} alt="" className='Item__img' />
+
       <div className='Item__div'>
         <h2>{name}</h2>
         <p>{description}</p>
@@ -15,6 +16,7 @@ function Item ({name, description, img, id}) {
           <button>Comprar</button>
         </Link>
       </div>
+
     </div>
   )
 

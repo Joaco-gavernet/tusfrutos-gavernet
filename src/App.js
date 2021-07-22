@@ -8,6 +8,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Landing from './components/Landing/Landing';
+import Cart from './components/Cart/Cart';
 
 
 // Styles
@@ -42,7 +43,7 @@ function App () {
                 </Route>
 
                 <Route exact path='/cart'>
-                  <h2>Carrito</h2>
+                  <Cart />
                 </Route>
               </Switch>
             </div>
