@@ -1,7 +1,7 @@
 const itemData = [
   {
     name: "Pasas",
-    price: "100",
+    price: 100,
     id: "001",
     img: "../assets/castanas.png",
     description: "Humedas y sabrosas pasas de uva.",
@@ -10,7 +10,7 @@ const itemData = [
   },
   {
     name: "Nueces",
-    price: "100",
+    price: 100,
     id: "002",
     img: "../../assets/nueces.png",
     description: "Las tradicionales y tan buscadas nueces.",
@@ -19,7 +19,7 @@ const itemData = [
   },
   {
     name: "Almendras",
-    price: "100",
+    price: 100,
     id: "003",
     img: "../../assets/almendras.png",
     description: "Almendras para alargar tus años de vida.",
@@ -28,7 +28,7 @@ const itemData = [
   },
   {
     name: "Castañas",
-    price: "100",
+    price: 100,
     id: "004",
     img: "../../assets/castanas.png",
     description: "Mejores que cualquier otro fruto.",
@@ -37,7 +37,7 @@ const itemData = [
   },
   {
     name: "Miel",
-    price: "100",
+    price: 100,
     id: "005",
     img: "../../assets/miel.png",
     description: "Miel para endulzar tus comidas. No dejes pasar la oportunidad de probarla.",
@@ -46,7 +46,7 @@ const itemData = [
   },
   {
     name: "Miel negra",
-    price: "100",
+    price: 100,
     id: "006",
     img: "../../assets/miel-oscura.png",
     description: "Miel original y caracteristica. Mas espesa y acaramelada que la miel cotidiana.",
@@ -55,7 +55,7 @@ const itemData = [
   },
   {
     name: "Granola Granix",
-    price: "100",
+    price: 100,
     id: "007",
     img: "../../assets/granola-verde.png",
     description: "Granola para levantar tus mañanas.",

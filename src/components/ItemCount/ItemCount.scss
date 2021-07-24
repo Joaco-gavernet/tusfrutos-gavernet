@@ -1,13 +1,15 @@
+@import '../../scss/base.scss';
+
 .ItemCountContainer {
   min-width: 280px;
   flex-direction: row;
   align-items: center;
-  color: blue;
+  color: $color-oscuro;
 
-  .input {
+  .h3 {
+    @include font($font-l, bold, none);
     display: inline-block;
-    width: 50px;
-    text-align: center;
+    padding: 2rem;
   }
 
   &__modifier {

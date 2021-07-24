@@ -20,6 +20,7 @@ function ItemDetail ({data}) {
     setVisible(!isVisible);
     setButton(!isButton);
     saveContext(data, quantity);
+    // alert(`Se agregaron productos al carrito.`)
   }
 
   const saveContext = (item, quantity) => {
