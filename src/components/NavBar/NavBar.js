@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CartWidget from '../CartWidget';
 import { Link } from 'react-router-dom';
 
 // Styles
 import './NavBar.scss';
 
+// Context
+import { CartContext } from '../../context/CartContext';
+
 
 function NavBar () {
+
+  const { cart, calculateTotalItems } = useContext(CartContext);
 
   return (
     <>
@@ -25,11 +30,15 @@ function NavBar () {
         </div>
         <div className='NavBar__widgets'>
           <a href="https://www.instagram.com/tus.frutossecos/">
-            <img src='../assets/ig.png' alt='' className='NavBar__widgetsImg' />
+            <img src='../assets/ig.png' alt='' className='widgets__instagram' />
           </a>
-          <Link to={'/cart'}>
-            <CartWidget />
-          </Link>
+          {
+            (cart.length > 0) && (
+              <Link to={'/cart'}>
+                <CartWidget quantity={calculateTotalItems()} />
+              </Link>
+            )
+          }
         </div>
       </div>
     </>

@@ -28,11 +28,37 @@
   }
 
   &__widgets {
-    @include flex(column, space-evenly, center);
+    // @include flex(column, space-evenly, center);
     min-height: 200px;
+    position: relative;
 
-    .NavBar__widgetsImg {
+    .widgets__instagram {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
       max-width: 90px;
+    }
+
+    .widgets__cart {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .widgets__cartCounter {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      background: white;
+      width: 20px;
+      height: 20px;
+      font-size: 1rem;
+      border-radius: 50%;
+      border: 1px solid black;
+      margin-left: 5px;
+      @include flex(normal, center, center);
     }
   }
 

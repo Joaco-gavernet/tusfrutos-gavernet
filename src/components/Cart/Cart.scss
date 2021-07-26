@@ -1,0 +1,63 @@
+@import '../../scss/base.scss';
+
+.table {
+  width: 100%;
+  background-color: whitesmoke;
+
+  .tableRow {
+    text-align: center;
+
+    td {
+      vertical-align: center;
+    }
+
+    &__detail {
+      @include flex(row, center, center);
+
+      &__img {
+        max-width: 100px;
+      }
+    }
+
+    &__name {
+      
+      &__h3 {
+        display: inline-block;
+      }
+    }
+
+    &__count {
+
+      &__subtotal {
+        display: inline-block;
+      }
+
+      .ItemCount {
+        display: inline-block;
+        width: 100%;
+      }
+      
+
+      .itemCount__h3 {
+        display: inline-block;
+        width: 60px;
+        @include font($font-xm, bold, none);
+      }
+
+      .itemCount__modifier {
+        @include font($font-xm, bold, none);
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        background-color: $color-turquesa;
+        border-radius: 50%;
+      }
+
+    }
+
+    .count__trash {
+      max-width: 40px;
+      cursor: pointer;
+    }
+  }
+}
