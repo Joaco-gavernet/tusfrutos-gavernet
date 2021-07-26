@@ -25,9 +25,13 @@ function ItemDetailContainer () {
       setItem(newItem);
     };
     
-    Promise.resolve(itemDataBase)
-    .then(ans => filterData(ans, id));
-    setReceived(true);
+    setTimeout(
+      () => {
+        Promise.resolve(itemDataBase)
+        .then(ans => filterData(ans, id));
+        setReceived(true);
+      }
+      , 500)
   }, [id]);
   
 

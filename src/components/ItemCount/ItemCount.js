@@ -16,7 +16,7 @@ function ItemCount ({onAdd, stock}) {
   }
 
   const countDown = (number) => {
-    if (number > 0) {
+    if (number >= 1) {
       number --
       setCount(number);
     } else {
