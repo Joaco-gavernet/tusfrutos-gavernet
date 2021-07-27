@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import './Item.scss';
 
 
-function Item ({name, description, img, id}) {
+function Item ({name, description, image, id}) {
 
   return (
     <div className='Item' style={{display: 'flex'}}>
-      <img src={img} alt="" className='Item__img' />
+      <img src={image} alt="" className='Item__img' />
 
       <div className='Item__div'>
         <h2>{name}</h2>
         <p>{description}</p>
         <Link to={`/item/:${id}`}>
-          <button>Comprar</button>
+          <span className='button'>Comprar</span>
         </Link>
       </div>
 

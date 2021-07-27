@@ -92,6 +92,8 @@ button, .button {
   border-radius: 50px;
   border: 0;
   cursor: pointer;
+  background-color: $color-claro;
+  color: $color-orange;
   // background: linear-gradient(to right, $limeGreen, $brightCyan);
   // color: $white;
   // font-weight: 400;
@@ -99,9 +101,9 @@ button, .button {
   // color: $white;
   // transition: opacity 300ms ease-in-out;
 
-  // &:hover {
-  //   opacity: 0.75;
-  // }
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
 /* Chrome, Safari, Edge, Opera */

@@ -26,10 +26,10 @@ function ItemCount ({onAdd, stock}) {
 
   return (
     <div className='ItemCountContainer'>
-      <button className='itemCountContainer__modifier' onClick={() => countDown(count)}>-</button>
+      <span className='button itemCountContainer__modifier' onClick={() => countDown(count)}>-</span>
       <h3 className='h3'>{count}</h3>
-      <button className='itemCountContainer__modifier' onClick={() => countUp(count)}>+</button>
-      <button className='' onClick={() => {onAdd(count)}}>Agregar</button>
+      <span className='button itemCountContainer__modifier' onClick={() => countUp(count)}>+</span>
+      <span className='button' onClick={() => {onAdd(count)}}>Agregar</span>
     </div>
   )
 }

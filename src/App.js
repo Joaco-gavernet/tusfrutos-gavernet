@@ -22,34 +22,34 @@ import { CartContextProvider } from './context/CartContext';
 function App () {
   return (
     <>
-        <div className='App'>
-          <CartContextProvider>
-          <BrowserRouter>
-            <NavBar />
+      <div className='App'>
+        <CartContextProvider>
+        <BrowserRouter>
+          <NavBar />
 
-            <div className='container'>
-              <Switch>
-                <Route exact path='/'>
-                  <Landing />
-                  <ItemListContainer />
-                </Route>
+          <div className='container'>
+            <Switch>
+              <Route exact path='/'>
+                <Landing />
+                <ItemListContainer />
+              </Route>
 
-                <Route exact path='/category/:id'>
-                  <ItemListContainer />
-                </Route>
+              <Route exact path='/category/:id'>
+                <ItemListContainer />
+              </Route>
 
-                <Route exact path='/item/:id'>
-                  <ItemDetailContainer />
-                </Route>
+              <Route exact path='/item/:id'>
+                <ItemDetailContainer />
+              </Route>
 
-                <Route exact path='/cart'>
-                  <Cart />
-                </Route>
-              </Switch>
-            </div>
-          </BrowserRouter>
-          </CartContextProvider>
-        </div>
+              <Route exact path='/cart'>
+                <Cart />
+              </Route>
+            </Switch>
+          </div>
+        </BrowserRouter>
+        </CartContextProvider>
+      </div>
     </>
   );
 }

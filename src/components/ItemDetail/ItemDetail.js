@@ -28,34 +28,41 @@ function ItemDetail ({data}) {
   }
 
 
+  console.log('data', data)
+
+
   return(
-    (data.stock !== 0) ? (
-      <div className='ItemDetail'>
-        <Link to='/'>
-          <img src='../assets/times-circle-regular.svg' className='ItemDetail__close' alt="" />
-        </Link>
-        <img src={data.img} alt="" className='ItemDetail__img' />
-        <div className='ItemDetail__div'>
-          <p>
-            {data.description}
-          </p>
-          <h3>{data.price}</h3>
-          {
-            isVisible && <ItemCount onAdd={onAdd} stock={data.stock} />
-          }
-          {
-            isButton && <Link to='/cart'><span>Terminar compra</span></Link>
-          }
-          {
-            isButton && <button onClick={() => {removeItem(data.id)}}>Eliminar producto</button>
-          }
-        </div>
-      </div>
-    ) : (
-      <div>
-        <h2>No hay mas stock de {data.name}</h2>
-      </div>
-    )
+    <>
+      {
+        (data.stock !== 0) ? (
+          <div className='ItemDetail'>
+            <Link to='/'>
+              <img src='../assets/times-circle-regular.svg' className='ItemDetail__close' alt="" />
+            </Link>
+            <img src={data.image} alt="" className='ItemDetail__img' />
+            <div className='ItemDetail__div'>
+              <p>
+                {data.description}
+              </p>
+              <h3>{data.price}</h3>
+              {
+                isVisible && <ItemCount onAdd={onAdd} stock={data.stock} />
+              }
+              {
+                isButton && <Link to='/cart'><span>Terminar compra</span></Link>
+              }
+              {
+                isButton && <span className='button' onClick={() => {removeItem(data.id)}}>Eliminar producto</span>
+              }
+            </div>
+          </div>
+        ) : (
+          <div>
+            <h2>No hay mas stock de {data.name}</h2>
+          </div>
+        )
+      }
+    </>
   )
 }
 

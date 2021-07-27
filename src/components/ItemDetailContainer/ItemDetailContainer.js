@@ -21,7 +21,7 @@ function ItemDetailContainer () {
   useEffect(() => {
     const filterData = (data, filterCategory) => {
       let newFilterCategory = filterCategory.substring(1);
-      let newItem = data.find(element => element.id === newFilterCategory);
+      let newItem = data.find(element => element.id === JSON.parse(newFilterCategory));
       setItem(newItem);
     };
     
@@ -29,11 +29,12 @@ function ItemDetailContainer () {
       () => {
         Promise.resolve(itemDataBase)
         .then(ans => filterData(ans, id));
+        console.log();
         setReceived(true);
       }
       , 500)
   }, [id]);
-  
+
 
   return (
     <>
