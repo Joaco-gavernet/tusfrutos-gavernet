@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import CartWidget from '../CartWidget';
 import { Link } from 'react-router-dom';
 
@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 import './NavBar.scss';
 
 // Context
-import { CartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 
 function NavBar () {
 
-  const { cart, calculateTotalItems } = useContext(CartContext);
+  const { cart, calculateTotalItems } = useCartContext();
 
   return (
     <>

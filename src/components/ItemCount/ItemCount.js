@@ -16,11 +16,11 @@ function ItemCount ({onAdd, stock}) {
   }
 
   const countDown = (number) => {
-    if (number >= 1) {
+    if (number >= 2) {
       number --
       setCount(number);
     } else {
-      alert('No puede ser menor que cero')
+      alert('No puede asignar una cantidad faltante.')
     }
   }
 

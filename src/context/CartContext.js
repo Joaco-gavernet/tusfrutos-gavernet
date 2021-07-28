@@ -1,7 +1,7 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 export const CartContext = createContext();
-// export const useCartContext = () => useContext(CartContext); // Ahorra tener que llamar al hook useContext al consumir el contexto en los distintos componentes. No funciona y no encuentro solucion. 
+export const useCartContext = () => useContext(CartContext);
 
 
 export const CartContextProvider = ({children}) => {
@@ -15,14 +15,23 @@ export const CartContextProvider = ({children}) => {
   const calculateTotalItems = () => cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
 
 
-  const addItem = (item, quantity) => {
+  const addItem = (item, quantity = item.quantity) => {
     if (isInCart(item.id)) {
-      let element = cart.find(instance => instance.id === item.id)
-      element.quantity = element.quantity + quantity;
+      if (isInStock(item)) {
+        let newQuantity = item.quantity + 1;
+        let example = cart.find(instance => instance.id === item.id).quantity = newQuantity;
+        setCart(example);
+        console.log('cart', cart);
+      }
     } else {
       item.quantity = quantity;
       setCart([...cart, item])
     }
+  }
+
+
+  const decrementItem = () => {
+    console.log('hola');
   }
 
 
@@ -38,11 +47,17 @@ export const CartContextProvider = ({children}) => {
 
   const isInCart = (id) => cart.some(instance => instance.id === id);
 
+  const isInStock = (item) => {
+    console.log('item', item)
+    return item.quantity < 20
+  } 
+
 
   return (
     <CartContext.Provider value={{
       cart, 
       addItem,
+      decrementItem,
       removeItem,
       clear,
       calculateTotalPrice,

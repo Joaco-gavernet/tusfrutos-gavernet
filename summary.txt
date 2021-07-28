@@ -1,0 +1,7 @@
+1. Modificaciones en Cart.js, TableRow.js, CartContext.js, ItemDetail.js
+2. Migrando el incrementador countUP() y countDown() desde Cart.js al CartContext.js. Reemplazandolos por un nuevo condicional en la funcion addItem() que corrobora el stock para despues incrementar por uno la cantidad y setear el cart. Ademas de la nueva funcion decrementItem() en CartContext que se va a encargar de reducir por uno la cantidad del item recibido por como parametro. 
+3. Complicaciones al hacer un seteo del Cart. 
+4. Dudas: 
+  * Es correcto pasar estas funcionalidades al CartContext.js? 
+  * Es preferible manejarlas de manera local en el componente Cart.js? 
+  * Conviene simplificar la funcion del ItemCount.js y consumir el contexto?

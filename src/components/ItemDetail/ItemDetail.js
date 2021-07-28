@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 
 // Components
 import { Link } from 'react-router-dom';
@@ -6,12 +6,12 @@ import ItemCount from '../../components/ItemCount/ItemCount';
 import './ItemDetail.scss';
 
 // Context
-import { CartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 
 function ItemDetail ({data}) {
   
-  const { addItem, removeItem } = useContext(CartContext);
+  const { addItem, removeItem } = useCartContext();
   
   const [ isVisible, setVisible ] = useState(true);
   const [ isButton, setButton ] = useState(false);
@@ -19,16 +19,9 @@ function ItemDetail ({data}) {
   const onAdd = (quantity) => {
     setVisible(!isVisible);
     setButton(!isButton);
-    saveContext(data, quantity);
+    addItem(data, quantity);
     // alert(`Se agregaron productos al carrito.`)
   }
-
-  const saveContext = (item, quantity) => {
-    addItem(item, quantity);
-  }
-
-
-  console.log('data', data)
 
 
   return(

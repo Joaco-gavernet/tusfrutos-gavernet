@@ -1,39 +1,46 @@
 import React, { useEffect, useState } from 'react';
+
+// Components
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
-import itemDataBase from '../../data/itemData';
 import { Spinner } from 'react-bootstrap';
+
+// Firestore
+import { getFirestore } from '../../firebase/index';
 
 
 function ItemDetailContainer () {
 
 
   // States
-  const [item, setItem] = useState([]);
-  const [received, setReceived] = useState(false);
+  const [ item, setItem ] = useState([]);
+  const [ received, setReceived ] = useState(false);
 
   
   // Params
   const { id } = useParams();
-  
 
-  // Effectos
-  useEffect(() => {
-    const filterData = (data, filterCategory) => {
-      let newFilterCategory = filterCategory.substring(1);
-      let newItem = data.find(element => element.id === JSON.parse(newFilterCategory));
-      setItem(newItem);
-    };
     
-    setTimeout(
-      () => {
-        Promise.resolve(itemDataBase)
-        .then(ans => filterData(ans, id));
-        console.log();
-        setReceived(true);
-      }
-      , 500)
-  }, [id]);
+  useEffect(() => {
+    
+    let db = getFirestore();
+    let itemCollection = db
+    .collection("items")
+    .doc(id.substring(1));
+
+    itemCollection
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.exists) {
+          setItem(querySnapshot.data())
+        } else {
+          console.log('Entro false');
+        }
+    })
+    .catch(error => console.log('error', error))
+
+    setReceived(true);
+  }, [id])
 
 
   return (

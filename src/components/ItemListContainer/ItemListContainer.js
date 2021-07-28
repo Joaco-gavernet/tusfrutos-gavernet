@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import ItemList from '../ItemList/ItemList';
-// import itemDataBase from '../../data/itemData';
 import { useParams } from 'react-router-dom';
+
+
+// Components
+import ItemList from '../ItemList/ItemList';
+
+
+// Styles
 import './ItemListContainer.scss';
 
 
@@ -11,30 +16,45 @@ import { getFirestore } from '../../firebase';
 
 export default function ItemListContainer () {
 
-  const [itemsData, setItemsData] = useState([]);
-  const {id} = useParams();
 
-  // const filterData = (data, filterCategory) => {
-  //   setItemsData(data.filter(item => item.category === filterCategory));
-  // }
-
-  // useEffect(() => {
-  //   if (id) Promise.resolve(itemDataBase).then(ans => filterData(ans, id));
-  //   if (!id) Promise.resolve(itemDataBase).then(ans => setItemsData(ans));
-  // }, [id])
+  const [ itemsData, setItemsData ] = useState([]);
 
 
-    const db = getFirestore();
-    const itemCollection = db.collection("items");
-    itemCollection.get().then((querySnapshot) => {
+  const { id } = useParams();
+
+
+  useEffect(() => {
+
+    if (id) {
+
+      let db = getFirestore();
+      let itemCollection = db.collection("items").where("categoryId", "==", id);
+      itemCollection.get().then((querySnapshot) => {
         if (querySnapshot.size === 0) {
-            console.log('no result')
+          console.log('no result');
+        } else {
+          setItemsData(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }) ))
+        }
+      }).finally(() => console.log('Finally ID true'))
+
+    } else {
+
+      let db = getFirestore();
+      let itemCollection = db.collection("items");
+
+      itemCollection.get().then((querySnapshot) => {
+        if (querySnapshot.size === 0) {
+          console.log('no result')
         } else {
           setItemsData(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
         }
-    }).catch(error => {
+      }).catch(error => {
         console.log('error', error);
-    })
+      }).finally(() => console.log('Finally ID false'))
+
+    }
+
+  }, [id])
 
 
 
