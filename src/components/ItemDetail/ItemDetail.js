@@ -10,7 +10,8 @@ import { useCartContext } from '../../context/CartContext';
 
 
 function ItemDetail ({data}) {
-  
+
+
   const { addItem, removeItem } = useCartContext();
   
   const [ isVisible, setVisible ] = useState(true);
@@ -19,8 +20,9 @@ function ItemDetail ({data}) {
   const onAdd = (quantity) => {
     setVisible(!isVisible);
     setButton(!isButton);
+
+    console.log('data.id', data.id);
     addItem(data, quantity);
-    // alert(`Se agregaron productos al carrito.`)
   }
 
 

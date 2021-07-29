@@ -35,7 +35,7 @@ export default function ItemListContainer () {
         } else {
           setItemsData(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }) ))
         }
-      }).finally(() => console.log('Finally ID true'))
+      })
 
     } else {
 
@@ -50,7 +50,7 @@ export default function ItemListContainer () {
         }
       }).catch(error => {
         console.log('error', error);
-      }).finally(() => console.log('Finally ID false'))
+      })
 
     }
 

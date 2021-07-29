@@ -3,32 +3,23 @@ import './ItemCount.scss';
 
 function ItemCount ({onAdd, stock}) {
 
-  const [count, setCount] = useState(1);
+  const [ count, setCount ] = useState(1);
 
-
-  const countUp = (number) => {
-    if (number < stock) {
-      number ++
-      setCount(number)
-    } else {
-      alert('Stock insuficiente')
-    }
+  const countUp = () => {
+    count < stock && setCount(count + 1);
+    count === stock && alert('No hay mas stock disponible.')
   }
 
-  const countDown = (number) => {
-    if (number >= 2) {
-      number --
-      setCount(number);
-    } else {
-      alert('No puede asignar una cantidad faltante.')
-    }
+  const countDown = () => {
+    count > 1 && setCount(count - 1);
   }
 
   return (
     <div className='ItemCountContainer'>
-      <span className='button itemCountContainer__modifier' onClick={() => countDown(count)}>-</span>
+      <span className='button itemCountContainer__modifier' onClick={countDown}>-</span>
       <h3 className='h3'>{count}</h3>
-      <span className='button itemCountContainer__modifier' onClick={() => countUp(count)}>+</span>
+      <span className='button itemCountContainer__modifier' onClick={countUp}>+</span>
+
       <span className='button' onClick={() => {onAdd(count)}}>Agregar</span>
     </div>
   )

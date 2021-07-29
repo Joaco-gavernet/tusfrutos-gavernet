@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Cart.scss';
-import TableRow from '../TableRow/TableRow';
+import CartItem from '../CartItem/CartItem';
 
 
 // Context
@@ -11,13 +11,7 @@ import { useCartContext } from '../../context/CartContext';
 export default function Cart () {
 
 
-  const { cart, clear, calculateTotalPrice, removeItem, addItem, decrementItem } = useCartContext();
-
-
-  useEffect(() => {
-    
-  }, [cart])
-
+  const { cart, clear, calculateTotalPrice } = useCartContext();
 
   return (
     <>
@@ -34,7 +28,7 @@ export default function Cart () {
                     </th>
                   </tr>
 
-                  {cart.map((instance, i) => <TableRow key={i} data={instance} countUp={addItem} countDown={decrementItem} removeItem={removeItem} />)}
+                  {cart.map((instance, i) => <CartItem key={i} data={instance} />)}
 
                 </tbody>
               </table>

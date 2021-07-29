@@ -15,49 +15,46 @@ export const CartContextProvider = ({children}) => {
   const calculateTotalItems = () => cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
 
 
-  const addItem = (item, quantity = item.quantity) => {
-    if (isInCart(item.id)) {
-      if (isInStock(item)) {
-        let newQuantity = item.quantity + 1;
-        let example = cart.find(instance => instance.id === item.id).quantity = newQuantity;
-        setCart(example);
-        console.log('cart', cart);
-      }
+  const addItem = (itemSelected, quantityUpdate = 1) => {
+    
+    
+    if (isInCart(itemSelected.id)) {
+      console.log('true', cart);
+      let example = cart.find(instance => instance.id === itemSelected.id)
+      console.log('example', example);
+
+      // itemSelected.quantity += quantityUpdate;
+      // setCart([...cart, itemSelected])
     } else {
-      item.quantity = quantity;
-      setCart([...cart, item])
+      console.log('false', cart);
+      itemSelected.quantity = quantityUpdate;
+      setCart([...cart, itemSelected]);
+
     }
-  }
-
-
-  const decrementItem = () => {
-    console.log('hola');
   }
 
 
   const removeItem = (id) => {
     let itemSpected = cart.find(ex => ex.id === id);
-    let newCart = cart.splice(cart.indexOf(itemSpected), 1);
-    setCart(newCart);
+    // let newCart = cart.splice(cart.indexOf(itemSpected), 1);
+    // setCart(newCart);
+
+    let index = cart.indexOf(itemSpected);
+    console.log('itemToRemove', cart[index]);
+    console.log('cart', cart);
+
+
   }
 
 
   const clear = () => setCart([]);
-
-
   const isInCart = (id) => cart.some(instance => instance.id === id);
-
-  const isInStock = (item) => {
-    console.log('item', item)
-    return item.quantity < 20
-  } 
 
 
   return (
     <CartContext.Provider value={{
       cart, 
       addItem,
-      decrementItem,
       removeItem,
       clear,
       calculateTotalPrice,
