@@ -13,7 +13,7 @@ function ItemDetailContainer () {
 
 
   // States
-  const [ item, setItem ] = useState([]);
+  const [ item, setItem ] = useState({});
   const [ received, setReceived ] = useState(false);
 
   
@@ -32,7 +32,7 @@ function ItemDetailContainer () {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.exists) {
-          setItem(querySnapshot.data())
+          setItem({ id: querySnapshot.id, ...querySnapshot.data() })
         } else {
           console.log('Entro false');
         }

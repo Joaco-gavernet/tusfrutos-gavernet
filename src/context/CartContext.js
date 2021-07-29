@@ -17,19 +17,17 @@ export const CartContextProvider = ({children}) => {
 
   const addItem = (itemSelected, quantityUpdate = 1) => {
     
-    
     if (isInCart(itemSelected.id)) {
-      console.log('true', cart);
-      let example = cart.find(instance => instance.id === itemSelected.id)
-      console.log('example', example);
-
-      // itemSelected.quantity += quantityUpdate;
-      // setCart([...cart, itemSelected])
+      const newCartItem = cart.map(item => {
+        if (item.id === itemSelected.id) {
+          return { ...item, quantity: item.quantity + quantityUpdate };
+        }
+        return item;
+      });
+      setCart(newCartItem);
     } else {
-      console.log('false', cart);
       itemSelected.quantity = quantityUpdate;
       setCart([...cart, itemSelected]);
-
     }
   }
 
@@ -42,13 +40,12 @@ export const CartContextProvider = ({children}) => {
     let index = cart.indexOf(itemSpected);
     console.log('itemToRemove', cart[index]);
     console.log('cart', cart);
-
-
   }
 
 
   const clear = () => setCart([]);
   const isInCart = (id) => cart.some(instance => instance.id === id);
+  // isInStock
 
 
   return (

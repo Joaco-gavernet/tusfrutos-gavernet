@@ -7,3 +7,5 @@
   * Conviene simplificar la funcion del ItemCount.js y consumir el contexto?
 
 1. No estoy seteando el item.id en la peticion a firebase de itemDetailContainer ?
+
+1. Intentar transladar el chequeo del stock al addItem. Cosa de no tener que manejarlo en los contadores de los componentes. 

@@ -20,8 +20,6 @@ function ItemDetail ({data}) {
   const onAdd = (quantity) => {
     setVisible(!isVisible);
     setButton(!isButton);
-
-    console.log('data.id', data.id);
     addItem(data, quantity);
   }
 

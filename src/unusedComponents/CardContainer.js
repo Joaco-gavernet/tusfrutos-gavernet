@@ -2,17 +2,6 @@ import React from 'react';
 import Card from './Card';
 
 
-
-// new Promise ((resolve, reject) => {
-//   resolve(fetchPetition)
-//   reject('There was some error I guess')
-// })
-// .then(data => console.log(data))
-// .catch(message => console.log(message))
-// .finally(() => console.log('All done'))
-
-
-
 class CardContainer extends React.Component {
 
   constructor(props) {

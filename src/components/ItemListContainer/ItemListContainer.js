@@ -29,7 +29,9 @@ export default function ItemListContainer () {
 
       let db = getFirestore();
       let itemCollection = db.collection("items").where("categoryId", "==", id);
-      itemCollection.get().then((querySnapshot) => {
+      itemCollection
+      .get()
+      .then((querySnapshot) => {
         if (querySnapshot.size === 0) {
           console.log('no result');
         } else {
@@ -41,8 +43,9 @@ export default function ItemListContainer () {
 
       let db = getFirestore();
       let itemCollection = db.collection("items");
-
-      itemCollection.get().then((querySnapshot) => {
+      itemCollection
+      .get()
+      .then((querySnapshot) => {
         if (querySnapshot.size === 0) {
           console.log('no result')
         } else {
