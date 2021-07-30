@@ -39,7 +39,15 @@ export default function Cart () {
             <>
               <h3>No hay productos en el carrito.</h3>
               <Link to="/">
-                <span>Seguir comprando</span>
+                <span className='button'>
+                  Sumar productos
+                </span>
+              </Link>
+
+              <Link to="/cart/order">
+                <span className='button'>
+                  Finalizar orden
+                </span>
               </Link>
             </>
           )

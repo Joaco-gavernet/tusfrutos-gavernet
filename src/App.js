@@ -9,6 +9,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Landing from './components/Landing/Landing';
 import Cart from './components/Cart/Cart';
+import CartOrder from './components/CartOrder/CartOrder';
 
 
 // Styles
@@ -44,6 +45,10 @@ function App () {
 
               <Route exact path='/cart'>
                 <Cart />
+              </Route>
+
+              <Route exact path='/cart/order'>
+                <CartOrder />
               </Route>
             </Switch>
           </div>
