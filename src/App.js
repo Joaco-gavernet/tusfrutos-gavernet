@@ -48,6 +48,7 @@ function App () {
               </Route>
 
               <Route exact path='/cart/order'>
+                <Cart />
                 <CartOrder />
               </Route>
             </Switch>

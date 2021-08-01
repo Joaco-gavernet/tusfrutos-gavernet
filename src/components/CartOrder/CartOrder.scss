@@ -1,0 +1,36 @@
+@import "../../scss/base.scss";
+
+.contactanos {
+  width: 100%;
+  min-height: 80vh;
+  // background: $color-claro;
+  padding: 50px 40px;
+  @include flex(column, center, center);
+
+  .form {
+    @include flex(column, space-around, center);
+    background: $color-ddl;
+    padding: 40px;
+    border-radius: 5px;
+
+    .message {
+      @include font(1.2rem, normal, none);
+      color: $color-alerta;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .name,
+    .instagram,
+    .email,
+    .description {
+      min-width: 500px;
+      margin: 10px 0;
+      padding: 10px 20px;
+      border: 1px solid $color-oscuro;
+      border-radius: 5px;
+      outline: none;
+      @include font(1.2rem, normal, none);
+    }
+  }
+}

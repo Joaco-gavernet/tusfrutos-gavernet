@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Cart.scss';
 import CartItem from '../CartItem/CartItem';
+
+
+// Styles
+import './Cart.scss';
 
 
 // Context
@@ -11,7 +14,7 @@ import { useCartContext } from '../../context/CartContext';
 export default function Cart () {
 
 
-  const { cart, clear, calculateTotalPrice } = useCartContext();
+  const { cart, clear, totalPrice } = useCartContext();
 
   return (
     <>
@@ -24,7 +27,7 @@ export default function Cart () {
                 <tbody>
                   <tr>
                     <th colSpan="2">
-                      <h3>Total: ${calculateTotalPrice()}</h3>
+                      <h3>Total: ${totalPrice}</h3>
                     </th>
                   </tr>
 
@@ -33,7 +36,13 @@ export default function Cart () {
                 </tbody>
               </table>
 
-              <button onClick={clear}>Vaciar carrito</button>
+              <span className='button' onClick={clear}>Vaciar carrito</span>
+              
+              <Link to="/cart/order">
+                <span className='button'>
+                  Finalizar orden
+                </span>
+              </Link>
             </>
           ) : (
             <>
@@ -41,12 +50,6 @@ export default function Cart () {
               <Link to="/">
                 <span className='button'>
                   Sumar productos
-                </span>
-              </Link>
-
-              <Link to="/cart/order">
-                <span className='button'>
-                  Finalizar orden
                 </span>
               </Link>
             </>

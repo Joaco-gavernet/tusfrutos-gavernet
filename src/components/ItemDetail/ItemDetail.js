@@ -17,9 +17,13 @@ function ItemDetail ({data}) {
   const [ isVisible, setVisible ] = useState(true);
   const [ isButton, setButton ] = useState(false);
 
-  const onAdd = (quantity) => {
+  const viewChange = () => {
     setVisible(!isVisible);
     setButton(!isButton);
+  }
+
+  const onAdd = (quantity) => {
+    viewChange();
     addItem(data, quantity);
   }
 
@@ -30,7 +34,9 @@ function ItemDetail ({data}) {
         (data.stock !== 0) ? (
           <div className='ItemDetail'>
             <Link to='/'>
-              <img src='../assets/times-circle-regular.svg' className='ItemDetail__close' alt="" />
+              <span className='button'>
+                Regresar
+              </span>
             </Link>
             <img src={data.image} alt="" className='ItemDetail__img' />
             <div className='ItemDetail__div'>
@@ -42,10 +48,13 @@ function ItemDetail ({data}) {
                 isVisible && <ItemCount onAdd={onAdd} stock={data.stock} />
               }
               {
-                isButton && <Link to='/cart'><span>Terminar compra</span></Link>
+                isButton && <Link to='/cart'><span className='button'>Terminar compra</span></Link>
               }
               {
-                isButton && <span className='button' onClick={() => {removeItem(data.id)}}>Eliminar producto</span>
+                isButton && <span className='button' onClick={() => {
+                  viewChange();
+                  removeItem(data.id)
+                }}>Eliminar producto</span>
               }
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 export const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
@@ -7,9 +7,7 @@ export const useCartContext = () => useContext(CartContext);
 export const CartContextProvider = ({children}) => {
 
   const [cart, setCart] = useState([]);
-
-
-  const calculateTotalPrice = () => cart.reduce((accumulator, item) => accumulator + item.price * item.quantity, 0)
+  const [ totalPrice, setTotalPrice ] = useState(0);
 
 
   const calculateTotalItems = () => cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
@@ -29,26 +27,26 @@ export const CartContextProvider = ({children}) => {
       itemSelected.quantity = quantityUpdate;
       setCart([...cart, itemSelected]);
     }
+
   }
 
 
-  const removeItem = (id) => {
-    let itemSpected = cart.find(ex => ex.id === id);
-    // let newCart = cart.splice(cart.indexOf(itemSpected), 1);
-    // setCart(newCart);
-
-    let index = cart.indexOf(itemSpected);
-    console.log('itemToRemove', cart[index]);
-    console.log('cart', cart);
-  }
-
+  const removeItem = (id) => setCart(cart.filter(itemSelected => itemSelected.id !== id));
 
 
   const clear = () => setCart([]);
   const isInCart = (id) => cart.some(instance => instance.id === id);
   // isInStock()
-
   // updateQuantity()
+
+
+  useEffect(() => {
+    // Calculate total price
+    let result = cart.reduce((accumulator, item) => accumulator + item.price * item.quantity, 0)
+    setTotalPrice(result);
+
+    
+  }, [cart])
 
 
   return (
@@ -57,7 +55,7 @@ export const CartContextProvider = ({children}) => {
       addItem,
       removeItem,
       clear,
-      calculateTotalPrice,
+      totalPrice,
       calculateTotalItems,
       }}>
       {children}

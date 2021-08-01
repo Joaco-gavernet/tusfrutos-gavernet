@@ -41,7 +41,7 @@ export default function CartItem ({data}) {
           <h3 className='itemCount__h3'>{count}</h3>
           <span className='button itemCount__modifier' onClick={countUp} >+</span>
         </div>
-        <img src="../assets/trash.png" alt="" className="count__trash" onClick={() => {removeItem(data.id) }} style={{display: "none"}}  />
+        <img src="../assets/trash.png" alt="" className="count__trash" onClick={() => removeItem(data.id)} />
       </td>
     </tr>
   )

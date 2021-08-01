@@ -1,23 +1,13 @@
-@import '../../scss/base.scss';
+@import "../../scss/base.scss";
 
 .ItemDetail {
-
-  &__close {
-    width: 2rem;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-  }
+  @include flex(column, center, center);
 
   &__img {
-    max-width: 100%;
+    max-width: 400px;
   }
 
   &__div {
-
+    max-width: 200px;
   }
 }
