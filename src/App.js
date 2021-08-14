@@ -2,7 +2,6 @@ import React from 'react';
 
 
 // Components
-import './App.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -10,10 +9,12 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Landing from './components/Landing/Landing';
 import Cart from './components/Cart/Cart';
 import CartOrder from './components/CartOrder/CartOrder';
+import OrderData from './components/OrderData/OrderData';
 
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.css';
+import './App.scss';
 
 
 // Context
@@ -50,6 +51,10 @@ function App () {
               <Route exact path='/cart/order'>
                 <Cart />
                 <CartOrder />
+              </Route>
+
+              <Route exact path='/orderData'>
+                <OrderData />
               </Route>
             </Switch>
           </div>

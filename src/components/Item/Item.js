@@ -12,8 +12,8 @@ function Item ({name, description, image, id}) {
       <div className='Item__div'>
         <h2>{name}</h2>
         <p>{description}</p>
-        <Link to={`/item/:${id}`}>
-          <span className='button'>Comprar</span>
+        <Link to={`/item/${id}`}>
+          <span className='button'>Detalles</span>
         </Link>
       </div>
 

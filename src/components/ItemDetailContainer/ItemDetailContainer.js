@@ -26,7 +26,7 @@ function ItemDetailContainer () {
     let db = getFirestore();
     let itemCollection = db
     .collection("items")
-    .doc(id.substring(1));
+    .doc(id);
 
     itemCollection
       .get()

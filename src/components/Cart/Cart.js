@@ -16,6 +16,7 @@ export default function Cart () {
 
   const { cart, clear, totalPrice } = useCartContext();
 
+
   return (
     <>
       <div className='Cart'>

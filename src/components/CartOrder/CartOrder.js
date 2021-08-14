@@ -8,21 +8,21 @@ import './CartOrder.scss';
 import { useCartContext } from '../../context/CartContext';
 
 // Firestore
-import { getFirestore } from '../../firebase';
+import { getFirebase, getFirestore } from '../../firebase';
 
 const CartOrder = () => {
 
   // States
-  const [ orderId, setOrderId ] = useState("");
   const [ formData, setFormData ] = useState({});
 
 
   // Context
-  const { cart, totalPrice } = useCartContext();
+  const { cart, totalPrice, clear, setOrderId } = useCartContext();
 
 
   // Firestore
   const db = getFirestore();
+  // const firebase = getFirebase();
 
 
   const handleChange = (evt) => {
@@ -37,12 +37,14 @@ const CartOrder = () => {
 
 
   const sendFormData = (event) => {
-    event.preventDefault()
+    // event.preventDefault()
+    clear();
 
     console.log('formdata', {
       buyer: formData,
       items: cart,
       total: totalPrice,
+      // date: firebase.firestore.Timestamp.fromDate(new Date()),
     });
 
 
@@ -90,19 +92,11 @@ const CartOrder = () => {
           <input name="instagram" type="text" id="instagram" className="instagram" placeholder="instagram" onChange={handleChange} />
           <input name="email" type="email" id="email" className="email" placeholder="email" onChange={handleChange} />
           <textarea name="description" className="description" cols="30" rows="5" placeholder="description" onChange={handleChange} />
-          <button className="button" onClick={sendFormData} >Confirmar compra</button>
+          <Link to='/OrderData'>
+            <button className="button" onClick={sendFormData} >Confirmar compra</button>
+          </Link>
         </form>
       </section>
-
-      {
-        orderId && (
-          <div>
-            <h3>Numero de orden:</h3>
-            <h4>{orderId}</h4>
-          </div>
-        )
-      }
-      
     </>
   )
 
