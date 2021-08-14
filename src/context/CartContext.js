@@ -53,11 +53,8 @@ export const CartContextProvider = ({children}) => {
 
 
 
-
-
   const clear = () => setCart([]);
   const isInCart = (id) => cart.some(instance => instance.id === id);
-  // isInStock()
 
 
   useEffect(() => {

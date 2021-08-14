@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Extras
+import swal from 'sweetalert';
+
 // Styles
 import './CartOrder.scss';
 
@@ -39,6 +42,14 @@ const CartOrder = () => {
   const sendFormData = (event) => {
     // event.preventDefault()
     clear();
+
+    // Sweet Alert configuration
+    swal({
+        title: "Su orden fue registrada!",
+        text: 'Corrobore haber recibido el numero de orden por su casilla de correo.',
+        icon: "success",
+        showCancelButton: true,
+      });
 
     console.log('formdata', {
       buyer: formData,
@@ -82,7 +93,9 @@ const CartOrder = () => {
     <>
 
       <Link to='/cart'>
-        Regresar
+        <span className='button'>
+          Regresar
+        </span>
       </Link>
 
       <section className="contactanos">

@@ -23,6 +23,14 @@ export default function ItemListContainer () {
   const { id } = useParams();
 
 
+  const isInStock = (stock) => {
+    if (stock > 0) {
+      return true;
+    }
+    return false;
+  }
+
+
   useEffect(() => {
 
     if (id) {
@@ -35,7 +43,11 @@ export default function ItemListContainer () {
         if (querySnapshot.size === 0) {
           console.log('no result');
         } else {
-          setItemsData(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }) ))
+          setItemsData(querySnapshot.docs.map(doc => {
+            if (isInStock(doc.data().stock)) {
+              return ({ id: doc.id, ...doc.data() })
+            }
+          }))
         }
       })
 

@@ -1,7 +1,7 @@
-@import 'scss/base.scss';
+@import "scss/base.scss";
 
 .App {
-  min-height: 100vh; 
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 20% 80%;
   grid-template-rows: 1fr;
@@ -9,5 +9,16 @@
 
   .container {
     grid-area: 1/2/2/3;
+  }
+}
+
+// Sweet Alert modifications
+.swal-overlay--show-modal {
+  .swal-modal {
+    padding: 55px 0;
+
+    .swal-icon--success {
+      margin: 5px auto;
+    }
   }
 }
