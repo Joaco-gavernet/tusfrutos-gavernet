@@ -40,10 +40,11 @@ function ItemDetail ({data}) {
             </Link>
             <img src={data.image} alt="" className='ItemDetail__img' />
             <div className='ItemDetail__div'>
+              <h2>{data.title}</h2>
               <p>
                 {data.description}
               </p>
-              <h3>{data.price}</h3>
+              <h3>${data.price}</h3>
               {
                 isVisible && <ItemCount onAdd={onAdd} stock={data.stock} />
               }

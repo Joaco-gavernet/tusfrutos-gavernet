@@ -20,7 +20,7 @@ const CartOrder = () => {
 
 
   // Context
-  const { cart, totalPrice, clear, setOrderId } = useCartContext();
+  const { cart, calculateTotalPrice, clear, setOrderId } = useCartContext();
 
 
   // Firestore
@@ -42,6 +42,7 @@ const CartOrder = () => {
   const sendFormData = (event) => {
     // event.preventDefault()
     clear();
+    let totalPrice = calculateTotalPrice;
 
     // Sweet Alert configuration
     swal({
@@ -75,20 +76,6 @@ const CartOrder = () => {
   }
 
 
-  useEffect(() => {
-
-
-    // Checking functionality
-    const items = db.collection("items").doc("1")
-    items.get().then(querySnapshot => {
-      let example = querySnapshot.data();
-      console.log('example', example);
-    })
-
-
-  }, [])
-
-
   return (
     <>
 
@@ -101,10 +88,10 @@ const CartOrder = () => {
       <section className="contactanos">
         <form
           className="form">
-          <input name="name" type="text" id="name" className="name" placeholder="name" onChange={handleChange} />
+          <input name="name" type="text" id="name" className="name" placeholder="nombre" onChange={handleChange} />
           <input name="instagram" type="text" id="instagram" className="instagram" placeholder="instagram" onChange={handleChange} />
           <input name="email" type="email" id="email" className="email" placeholder="email" onChange={handleChange} />
-          <textarea name="description" className="description" cols="30" rows="5" placeholder="description" onChange={handleChange} />
+          <textarea name="description" className="description" cols="30" rows="5" placeholder="comentarios" onChange={handleChange} />
           <Link to='/OrderData'>
             <button className="button" onClick={sendFormData} >Confirmar compra</button>
           </Link>

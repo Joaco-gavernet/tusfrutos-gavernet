@@ -23,53 +23,30 @@ export default function ItemListContainer () {
   const { id } = useParams();
 
 
-  const isInStock = (stock) => {
-    if (stock > 0) {
-      return true;
-    }
-    return false;
-  }
-
-
   useEffect(() => {
 
-    if (id) {
-
       let db = getFirestore();
-      let itemCollection = db.collection("items").where("categoryId", "==", id);
+      let itemCollection;
+
+      if (id) {
+        itemCollection = db.collection("items").where("categoryId", "==", id);
+      } else {
+        itemCollection = db.collection("items");
+      }
+
       itemCollection
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.size === 0) {
           console.log('no result');
         } else {
-          setItemsData(querySnapshot.docs.map(doc => {
-            if (isInStock(doc.data().stock)) {
-              return ({ id: doc.id, ...doc.data() })
-            }
-          }))
+          let partialStore = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+          let filteredSnapshot = partialStore.filter(doc => doc.stock > 1);
+          setItemsData(filteredSnapshot);
         }
       })
 
-    } else {
-
-      let db = getFirestore();
-      let itemCollection = db.collection("items");
-      itemCollection
-      .get()
-      .then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
-          console.log('no result')
-        } else {
-          setItemsData(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
-        }
-      }).catch(error => {
-        console.log('error', error);
-      })
-
-    }
-
-  }, [id])
+}, [id])
 
 
 

@@ -14,7 +14,7 @@ import { useCartContext } from '../../context/CartContext';
 export default function Cart () {
 
 
-  const { cart, clear, totalPrice } = useCartContext();
+  const { cart, clear, calculateTotalPrice } = useCartContext();
 
 
   return (
@@ -28,7 +28,7 @@ export default function Cart () {
                 <tbody>
                   <tr>
                     <th colSpan="2">
-                      <h3>Total: ${totalPrice}</h3>
+                      <h3>Total: ${calculateTotalPrice()}</h3>
                     </th>
                   </tr>
 

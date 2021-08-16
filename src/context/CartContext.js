@@ -7,11 +7,11 @@ export const useCartContext = () => useContext(CartContext);
 export const CartContextProvider = ({children}) => {
 
   const [ cart, setCart ] = useState([]);
-  const [ totalPrice, setTotalPrice ] = useState(0);
   const [ orderId, setOrderId ] = useState("");
 
 
   const calculateTotalItems = () => cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
+  const calculateTotalPrice = () => cart.reduce((accumulator, item) => accumulator + item.price * item.quantity, 0);
 
 
   const addItem = (itemSelected, quantityUpdate = 1) => {
@@ -57,23 +57,13 @@ export const CartContextProvider = ({children}) => {
   const isInCart = (id) => cart.some(instance => instance.id === id);
 
 
-  useEffect(() => {
-    // Calculate total price
-    console.log('cart', cart);
-    let result = cart.reduce((accumulator, item) => accumulator + item.price * item.quantity, 0)
-    setTotalPrice(result);
-
-    
-  }, [cart])
-
-
   return (
     <CartContext.Provider value={{
       cart, 
       addItem,
       removeItem,
       clear,
-      totalPrice,
+      calculateTotalPrice,
       calculateTotalItems,
       updateQuantity,
       orderId, 
