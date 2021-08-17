@@ -15,11 +15,9 @@ function ItemDetail ({data}) {
   const { addItem, removeItem } = useCartContext();
   
   const [ isVisible, setVisible ] = useState(true);
-  const [ isButton, setButton ] = useState(false);
 
   const viewChange = () => {
     setVisible(!isVisible);
-    setButton(!isButton);
   }
 
   const onAdd = (quantity) => {
@@ -32,33 +30,35 @@ function ItemDetail ({data}) {
     <>
       {
         (data.stock !== 0) ? (
-          <div className='ItemDetail'>
+          <>
             <Link to='/'>
               <span className='button'>
-                Regresar
+                Home
               </span>
             </Link>
-            <img src={data.image} alt="" className='ItemDetail__img' />
-            <div className='ItemDetail__div'>
-              <h2>{data.title}</h2>
-              <p>
-                {data.description}
-              </p>
-              <h3>${data.price}</h3>
-              {
-                isVisible && <ItemCount onAdd={onAdd} stock={data.stock} />
-              }
-              {
-                isButton && <Link to='/cart'><span className='button'>Terminar compra</span></Link>
-              }
-              {
-                isButton && <span className='button' onClick={() => {
-                  viewChange();
-                  removeItem(data.id)
-                }}>Eliminar producto</span>
-              }
+            <div className='ItemDetail'>
+              <img src={data.image} alt="" className='ItemDetail__img' />
+              <div className='ItemDetail__div'>
+                <h2>{data.title}</h2>
+                <p className='div__description'>
+                  {data.description}
+                </p>
+                <h3>${data.price}</h3>
+                {
+                  isVisible && <ItemCount onAdd={onAdd} stock={data.stock} />
+                }
+                {
+                  !isVisible && <Link to='/cart'><span className='button div__buttonEnd'>Terminar compra</span></Link>
+                }
+                {
+                  !isVisible && <span className='button div__buttonRemove' onClick={() => {
+                    viewChange();
+                    removeItem(data.id)
+                  }}>Eliminar producto</span>
+                }
+              </div>
             </div>
-          </div>
+          </>
         ) : (
           <div>
             <h2>No hay mas stock de {data.name}</h2>

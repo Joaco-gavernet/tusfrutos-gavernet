@@ -8,7 +8,9 @@ function CartWidget ({quantity}) {
         alt='Shopping cart' 
         className='widgets__cart'
         width='30px' />
-      <h3 className='widgets__cartCounter'>{quantity}</h3>
+      {
+        (quantity > 0) && <h3 className='widgets__cartCounter'>{quantity}</h3>
+      }
     </>
   )
 }

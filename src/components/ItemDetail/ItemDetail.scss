@@ -1,13 +1,19 @@
 @import "../../scss/base.scss";
 
 .ItemDetail {
-  @include flex(column, center, center);
+  @include flex(row, space-evenly, center);
+  width: 100%;
 
   &__img {
-    max-width: 400px;
+    max-width: 500px;
   }
 
   &__div {
-    max-width: 200px;
+    max-width: 30%;
+    min-height: 450px;
+    @include flex(column, space-evenly, flex-start);
+    background-color: $color-ddl;
+    border-radius: 20px;
+    padding: 2rem;
   }
 }

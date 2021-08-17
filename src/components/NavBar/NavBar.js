@@ -32,13 +32,9 @@ function NavBar () {
           <a href="https://www.instagram.com/tus.frutossecos/">
             <img src='../assets/ig.png' alt='' className='widgets__instagram' />
           </a>
-          {
-            (cart.length > 0) && (
-              <Link to={'/cart'}>
-                <CartWidget quantity={calculateTotalItems()} />
-              </Link>
-            )
-          }
+          <Link to={'/cart'}>
+            <CartWidget quantity={calculateTotalItems()} />
+          </Link>
         </div>
       </div>
     </>

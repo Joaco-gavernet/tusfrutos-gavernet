@@ -1,18 +1,45 @@
-@import '../../scss/base.scss';
+@import "../../scss/base.scss";
+
+.link {
+  width: 100%;
+}
 
 .Item {
-  width: 90%;
+  width: 100%;
+  max-width: 1000px;
   min-height: 15rem;
-  @include flex(row, flex-start, center);
+  @include flex(row, space-evenly, center);
+  border-radius: 20px;
+
+  // These ones do not function yet
+  // -webkit-box-shadow: -4px 10px 25px 2px rgba(0, 0, 0, 0);
+  // box-shadow: -4px 10px 25px 2px rgba(0, 0, 0, 0);
+  // animation: 1s ease-in-out all;
+
+  &:hover {
+    -webkit-box-shadow: -4px 10px 25px 2px rgba(0, 0, 0, 0.67);
+    box-shadow: -4px 10px 25px 2px rgba(0, 0, 0, 0.67);
+  }
 
   &__img {
-    height: 200px;
-    width: 200px;
-    margin-right: 4rem;
+    width: 500px;
   }
 
   &__div {
-    background: $color-salmon-light;
+    background: $color-claro;
+    border-radius: 20px;
     padding: 2rem;
+    max-width: 30%;
+
+    .Item__link {
+      display: none;
+
+      @include breakpoint-down(medium);
+    }
+
+    .button {
+      background-color: $color-orange;
+      color: $color-oscuro;
+    }
   }
 }

@@ -52,7 +52,7 @@ function App () {
                 <CartOrder />
               </Route>
 
-              <Route exact path='/orderData'>
+              <Route exact path='/orderdata'>
                 <OrderData />
               </Route>
             </Switch>

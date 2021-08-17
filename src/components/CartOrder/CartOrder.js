@@ -39,10 +39,11 @@ const CartOrder = () => {
   }
 
 
-  const sendFormData = (event) => {
-    // event.preventDefault()
+  const sendFormData = () => {
     clear();
-    let totalPrice = calculateTotalPrice;
+
+    let totalPrice = calculateTotalPrice();
+
 
     // Sweet Alert configuration
     swal({
@@ -52,6 +53,7 @@ const CartOrder = () => {
         showCancelButton: true,
       });
 
+    // Checking inputs
     console.log('formdata', {
       buyer: formData,
       items: cart,
@@ -76,24 +78,104 @@ const CartOrder = () => {
   }
 
 
+  const verifyEmail = () => {
+    let email1 = document.querySelector('.email1').value;
+    let email2 = document.querySelector('.email2').value;
+    
+    if (email1 === email2) return true;
+    return false;
+  }
+
+  const verifyOthers = () => {
+    let name = document.querySelector('.name').value;
+    let surname = document.querySelector('.surname').value;
+    let email1 = document.querySelector('.email1').value;
+    let email2 = document.querySelector('.email2').value;
+
+    if (name && surname && email1 && email2) {
+      return true;
+    }
+    return false;
+
+  }
+  
+  
+  const verify = (event) => {
+    event.preventDefault()
+
+    let emailError = document.querySelector('.emailError');
+    let emptyError = document.querySelector('.emptyError');
+
+    emailError.style.display = 'none';
+    emptyError.style.display = 'none';
+    
+    if (!verifyEmail()) {
+      emailError.style.display = 'inline-block';
+    }
+
+    if (!verifyOthers()) {
+      emptyError.style.display = 'inline-block';
+    }
+    
+    if (verifyEmail() && verifyOthers()) {
+      sendFormData();
+    }
+    
+  }
+
+
   return (
     <>
 
       <Link to='/cart'>
         <span className='button'>
-          Regresar
+          Carrito
         </span>
       </Link>
 
       <section className="contactanos">
-        <form
-          className="form">
-          <input name="name" type="text" id="name" className="name" placeholder="nombre" onChange={handleChange} />
-          <input name="instagram" type="text" id="instagram" className="instagram" placeholder="instagram" onChange={handleChange} />
-          <input name="email" type="email" id="email" className="email" placeholder="email" onChange={handleChange} />
-          <textarea name="description" className="description" cols="30" rows="5" placeholder="comentarios" onChange={handleChange} />
-          <Link to='/OrderData'>
-            <button className="button" onClick={sendFormData} >Confirmar compra</button>
+        <form className="form">
+          <h3 className='emptyError'>Corrobore haber completado todas las casillas.</h3>
+          <h3 className='emailError'>Corrobore haber ingresado correctamente su información.</h3>
+          <input 
+            name="name" 
+            type="text" 
+            id="name" 
+            className="name" 
+            placeholder="nombre" 
+            onChange={handleChange} />
+          <input name="surname" 
+            type="text" 
+            id="surname" 
+            className="surname" 
+            placeholder="surname" 
+            onChange={handleChange} />
+          <input name="email" 
+            type="email" 
+            id="email" 
+            className="email email1" 
+            placeholder="email" 
+            onChange={handleChange} />
+          <input 
+            name="email" 
+            type="email" 
+            id="email" 
+            className="email email2" 
+            placeholder="verificacion email" 
+            onChange={handleChange} />
+          <textarea 
+            name="description" 
+            className="description" 
+            cols="30" 
+            rows="5" 
+            placeholder="descripcion" 
+            onChange={handleChange} />
+          <Link to='/orderdata'>
+            <button 
+              className="button" 
+              onClick={verify}>
+                Confirmar compra
+            </button>
           </Link>
         </form>
       </section>

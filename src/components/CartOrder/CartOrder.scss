@@ -13,15 +13,17 @@
     padding: 40px;
     border-radius: 5px;
 
-    .message {
+    .emailError,
+    .emptyError {
       @include font(1.2rem, normal, none);
       color: $color-alerta;
-      border: none;
-      border-radius: 5px;
+      text-align: center;
+      max-width: 500px;
+      display: none;
     }
 
     .name,
-    .instagram,
+    .surname,
     .email,
     .description {
       min-width: 500px;
@@ -31,6 +33,10 @@
       border-radius: 5px;
       outline: none;
       @include font(1.2rem, normal, none);
+    }
+
+    .confirm {
+      pointer-events: none;
     }
   }
 }
